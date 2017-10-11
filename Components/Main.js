@@ -85,11 +85,11 @@ var ListItem = React.createClass({
 
 	//creating a render function to actually create the html element of the list item.
 	render: function render() {
-		return React.createElement(React.createElement('a', {href: '#/item/' + this.props.id})('li', {}, React.createElement('a', { className: 'menu-item-link', href: '#/item/' + this.props.id }, //setting custom href
+		return React.createElement('li', {}, React.createElement('a', { className: 'menu-item-link', href: '#/item/' + this.props.id }, //setting custom href
 		React.createElement('h2', { className: 'list-item-name' }, this.props.name), //passing the item name in the h2 element
 		React.createElement('img', { className: "year", src: this.props.image, width: '130px' })
 		//React.createElement('div', {className: 'year'}, this.props.year)//passing the year property into a div 
-		)));
+		));
 	}
 });
 
