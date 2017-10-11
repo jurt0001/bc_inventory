@@ -27,6 +27,8 @@ ul {
 .list-item-name {
     padding-left: 20px;
     font-size: 4em;
+    margin-top: 10px;
+    
     
 }
 
@@ -46,6 +48,7 @@ h2 {
     font-family: Arial, sans-serif;
     font-style: italic;
     margin: 14px 20px;
+    position: relative
 }
 
 form {
@@ -132,3 +135,22 @@ form > button {
     
 }
 
+.stats{
+   
+    font-size: 2em;
+    margin: -60px;
+    width: 60%;
+    padding-left: 90px;
+    padding-top: 30px;
+    
+        
+    
+}
+
+.stats p{
+    display: inline-block;
+    padding-right: 30px;
+        
+            
+    
+}

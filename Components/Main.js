@@ -80,18 +80,23 @@ var ListItem = React.createClass({
 		name: React.PropTypes.string.isRequired, //setting the name of the accomplishment as property
 		year: React.PropTypes.string.isRequired, //setting the year as a property
 		description: React.PropTypes.string, // setting the description as a property
-		image: React.PropTypes.src //setting the image. not required
+		image: React.PropTypes.src, //setting the image. not required
+        start: React.PropTypes.string,
+        addon: React.PropTypes.string,
+        end: React.PropTypes.string
 	},
 
 	//creating a render function to actually create the html element of the list item.
 	render: function render() {
 		return React.createElement('li', {}, React.createElement('a', { className: 'menu-item-link', href: '#/item/' + this.props.id }, //setting custom href
-		React.createElement('h2', { className: 'list-item-name' }, this.props.name), //passing the item name in the h2 element
+		React.createElement('h2', { className: 'list-item-name' }, this.props.name),
 		React.createElement('img', { className: "year", src: this.props.image, width: '130px' })
 		//React.createElement('div', {className: 'year'}, this.props.year)//passing the year property into a div 
-		));
+		), React.createElement('div', {className: "stats"}, React.createElement('p', {}, " Start: " + this.props.start, React.createElement('p', {}, " AddOns: " + this.props.addon, React.createElement('p', {}, " End: " + this.props.start )))));
 	}
 });
+        
+        
 
 var ListItems = React.createClass({
 	displayName: 'ListItems',
@@ -286,6 +291,9 @@ setState({ listItem: {
 		name: '',
 		description: '',
 		year: '',
-		image: ''
+		image: '',
+        start: '',
+        addon: '',
+        end: ''
 	}, location: location.hash,
 	items: items });
