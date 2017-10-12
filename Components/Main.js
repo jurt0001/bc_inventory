@@ -185,8 +185,11 @@ var AddEntryForm = React.createClass({
 			placeholder: 'ml',
 			value: this.props.listItem.year,
 			onChange: this.onYearChange
-		}), React.createElement('button', { id: "add-button", type: 'button', onClick: this.onSubmit }, 'Add'));
+		}), React.createElement('a', { className: "", href: '#'}, React.createElement('button', { id: "add-button", type: 'button', onClick: this.onSubmit }, 'Add')));
+        
+        
 	}
+    
 });
 
 //Creating the page where the add entry form will live

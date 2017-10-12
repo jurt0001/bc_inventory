@@ -10,7 +10,6 @@ Updated: Oct 1, 2017
 
 *****************************************************************/
 
-
 var items = [
 	{key: 1, id: 1, name: 'Beaus Lugtread', year: '700ml', description: "", image: 'images/beer.png', start: "100", addon: "12", end: "24"},
 	{key: 2, id: 2, name: 'White Wine', year: '1000ml', description:  "", image: 'images/white_wine.png', start: "0", addon: "0", end: "0"},
