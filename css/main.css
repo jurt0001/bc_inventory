@@ -108,12 +108,34 @@ form > button {
 .bottle{
     z-index: 200;
     width: 100%;
+    margin: 0 auto;
     
 }
 
 .bottle-div{
+    width: 90%;
+    margin: 100px auto; 
+    
+}
+
+
+.edit-button{
+    
+    width: 35%;
+    margin: 0 auto;
+    height: 100px;
+}
+
+.edit-button a{
+    align-content: center;
+   
     width: 100%;
-    margin: 100px auto;    
+    height: 300px;
+    font-size: 5em;
+    background-color: forestgreen;
+    padding: 10px 100px 10px 100px
+    
+    
 }
 
 .item-header{
@@ -124,6 +146,7 @@ form > button {
 .item-add{
     float: right;
     margin-right: 10px;
+    
     
 }
 
@@ -152,5 +175,15 @@ form > button {
 
 .list-header{
     margin-top: 20px;
+    
+}
+
+#add-button{
+    background-color: forestgreen;
+    margin-left: 150px;;
+    width: 200px;
+    color: white;
+    height: 70px;
+    font-size: 1.8em
     
 }
