@@ -221,7 +221,91 @@ var FormView = React.createClass({
 		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, "Add Item", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(AddEntryForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem })));
 	}
 });
+     
         
+var EditForm = React.createClass({
+	displayName: 'EditForm',
+
+	propTypes: {
+		listItem: React.PropTypes.object.isRequired,
+		onChange: React.PropTypes.func.isRequired,
+		onSubmit: React.PropTypes.func.isRequired
+	},
+	onNameChange: function onNameChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { name: e.target.value }));
+	},
+	onYearChange: function onYearChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { year: e.target.value }));
+	},
+	onDescriptionChange: function onDescriptionChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { description: e.target.value }));
+	},
+    
+    onStartChange: function onStartChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { start: e.target.value }));
+	},
+    
+    onAddonChange: function onAddonChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { addon: e.target.value }));
+	},
+    
+    onEndChange: function onEndChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { end: e.target.value }));
+	},
+	onSubmit: function onSubmit() {
+		//checking to make sure the required fields have been input by user
+		if (this.props.listItem.name != '' && this.props.listItem.year != '') {
+			this.props.onSubmit(this.props.listItem);
+		} else {
+			alert('Name and year field are required!!!');
+		}
+	},
+	render: function render() {
+		//setting up the form
+		return React.createElement('form', {}, React.createElement('input', {
+			type: 'text',
+			placeholder: 'Name',
+			value: this.props.listItem.name,
+			onChange: this.onNameChange
+		}), React.createElement('input', {
+			type: 'text',
+			placeholder: 'ml',
+			value: this.props.listItem.year,
+			onChange: this.onYearChange
+		}), React.createElement('textarea', {
+			placeholder: 'Description',
+			value: this.props.listItem.description,
+			onChange: this.onDescriptionChange
+		}), React.createElement('input', {
+			placeholder: 'Start',
+			value: this.props.listItem.start,
+			onChange: this.onStartChange
+		}), React.createElement('input', {
+			placeholder: 'Addon',
+			value: this.props.listItem.addon,
+			onChange: this.onAddonChange
+		}), React.createElement('input', {
+			placeholder: 'End',
+			value: this.props.listItem.end,
+			onChange: this.onEndChange
+		}), React.createElement('button', { id: "add-button", type: 'button', onClick: this.onSubmit }, 'Save'));
+	}
+});        
+    
+        
+    var EditFormView = React.createClass({
+	displayName: 'EditFormView',
+
+	propTypes: {
+		listItem: React.PropTypes.object.isRequired,
+		onNewListItemChange: React.PropTypes.func.isRequired,
+		onSubmitNewItem: React.PropTypes.func.isRequired
+	},
+
+	render: function render() {
+		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, "Edit Inventory", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(AddEntryForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem })));
+	}
+});
         
 //let Footer = React.createClass({
 //	propTypes: {
@@ -261,6 +345,16 @@ var setState = function setState(changes) {
 				}
 			};
 			break;
+            
+        case 'edititem':
+            component = EditFormView;
+            Properties = {
+                
+                
+                
+            };
+            break;
+            
 		case 'item':
 			component = ItemPage;
 			//determining what to display on items page based on the hash and compared to the item key
@@ -289,7 +383,7 @@ window.addEventListener('hashchange', function () {
 //Start the app by declaring the initial state
 setState({ listItem: {
 		name: '',
-		description: 'no description available',
+		description: '',
 		year: '',
 		image: 'images/new_item.png',
         start: '0',
