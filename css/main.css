@@ -140,6 +140,7 @@ form > button {
 
 .item-header{
     text-align: center;
+    font-size: 4.1em;
     
 }
 
@@ -174,7 +175,10 @@ form > button {
 }
 
 .list-header{
-    margin-top: 20px;
+    height: 100px;
+    
+    margin-bottom: 10px;
+    padding-top: 1px;
     
 }
 
