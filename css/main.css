@@ -125,7 +125,7 @@ form > button {
 
 .item-add{
     float: right;
-    margin-right: 5px;
+    margin-right: 10px;
     
 }
 
@@ -143,14 +143,16 @@ form > button {
     padding-left: 90px;
     padding-top: 30px;
     
-        
-    
 }
 
 .stats p{
     display: inline-block;
     padding-right: 30px;
         
-            
+     
+}
+
+.list-header{
+    margin-top: 20px;
     
 }

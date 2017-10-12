@@ -125,7 +125,7 @@ var ListPage = React.createClass({
 	},
 
 	render: function render() {
-		return React.createElement('div', {}, React.createElement('h1', {className: "item-header"}, "BC Inventory", React.createElement('a', {className: "item-add", href: "#newitem"}, "Add+")), React.createElement('div', {}, React.createElement(ListItems, { items: this.props.items }) //populating the list page with the list
+		return React.createElement('div', {className: "list-header"}, React.createElement('h1', {className: "item-header"}, "BC Inventory", React.createElement('a', {className: "item-add", href: "#newitem"}, "Add+")), React.createElement('div', {}, React.createElement(ListItems, { items: this.props.items }) //populating the list page with the list
 		));
 	},
     
@@ -289,11 +289,11 @@ window.addEventListener('hashchange', function () {
 //Start the app by declaring the initial state
 setState({ listItem: {
 		name: '',
-		description: '',
+		description: 'no description available',
 		year: '',
-		image: '',
-        start: '',
-        addon: '',
-        end: ''
+		image: 'images/new_item.png',
+        start: '0',
+        addon: '0',
+        end: '0'
 	}, location: location.hash,
 	items: items });
