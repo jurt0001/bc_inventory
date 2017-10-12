@@ -95,8 +95,6 @@ var ListItem = React.createClass({
 	}
 });
         
-        
-
 var ListItems = React.createClass({
 	displayName: 'ListItems',
 	//Creating List of the items
@@ -129,17 +127,7 @@ var ListPage = React.createClass({
 	},
     
     
-//    	render: function render() {
-//		return (//creating item page view
-//			React.createElement('div', {}, React.createElement('h1', {className: "item-header"}, this.props.name + " (" + this.props.year + ")", React.createElement('a', {className: "item-add", href: "#newitem"}, "Add+"), React.createElement('a', {className: "back", href: "#"}, "Back"), React.createElement('hr', {})), React.createElement('div', { className: 'item-view' }, React.createElement('p', { className: 'list-name-header' },
-//            React.createElement('div', {className: "bottle-div"}, this.props.description, React.createElement('img', { className: "bottle", src: this.props.image, width: '400px' })))))
-//		);
-//	}
-    
-    
 });
-
-//creating pages to showcase the details of the individual list items.
 
 var ItemPage = React.createClass({
 	displayName: 'ItemPage',
@@ -153,8 +141,8 @@ var ItemPage = React.createClass({
 
 	render: function render() {
 		return (//creating item page view
-			React.createElement('div', {}, React.createElement('h1', {className: "item-header1"}, this.props.name + " (" + this.props.year + ")", React.createElement('a', {className: "item-add1", href: "#newitem"}, "+"), React.createElement('a', {className: "back", href: "#"}, "Back"), React.createElement('hr', {})), React.createElement('div', { className: 'item-view' }, React.createElement('p', { className: 'list-name-header' })),
-            React.createElement('div', {className: "bottle-div"}, React.createElement('img', { className: "bottle", src: this.props.image, width: '400px' }, )), React.createElement('div', {className: "edit-button"}, React.createElement('a', { href: "#edititem/" + this.props.id}, "Edit")))
+			React.createElement('div', {}, React.createElement('h1', {className: "item-header1"}, this.props.name + " (" + this.props.year + ")", React.createElement('a', {className: "back", href: "#"}, "Back"), React.createElement('hr', {})), React.createElement('div', { className: 'item-view' }, React.createElement('p', { className: 'list-name-header' })),
+            React.createElement('div', {className: "bottle-div"}, React.createElement('img', { className: "bottle", src: this.props.image, width: '400px' }, )), React.createElement('div', {className: "edit-button"}, React.createElement('a', { href: "#edit-item-start/" + this.props.id}, "Start"), React.createElement('a', { href: "#edit-item-addon/" + this.props.id}, "Addon"), React.createElement('a', { href: "#edit-item-end/" + this.props.id}, "End")))
 		
 	)}
 });
@@ -226,10 +214,9 @@ var EditFormView = React.createClass({
 	},
 
 	render: function render() {
-		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, "Edit Inventory", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(EditForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
+		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, "Edit Start", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(EditForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
 	}
 });
-     
         
 var EditForm = React.createClass({
 	displayName: 'EditForm',
@@ -243,15 +230,9 @@ var EditForm = React.createClass({
     onStartChange: function onStartChange(e) {
 		this.props.onChange(Object.assign({}, this.props.listItem, { start: e.target.value }));
 	},
-    onAddonChange: function onAddonChange(e) {
-		this.props.onChange(Object.assign({}, this.props.listItem, { addon: e.target.value }));
-	},
-    onEndChange: function onEndChange(e) {
-		this.props.onChange(Object.assign({}, this.props.listItem, { end: e.target.value }));
-	},
 	onSubmit: function onSubmit() {
 		//checking to make sure the required fields have been input by user
-			this.props.onSubmit(this.props.listItem);
+			this.props.onSubmit(this.props.listItem.start);
 		
 	},
 	render: function render() {
@@ -261,23 +242,13 @@ var EditForm = React.createClass({
 			placeholder: 'Start',
 			value: this.props.listItem.start,
 			onChange: this.onStartChange
-		}), React.createElement('input', {
-			placeholder: 'Addon',
-			value: this.props.listItem.addon,
-			onChange: this.onAddonChange
-		}), React.createElement('input', {
-			placeholder: 'End',
-			value: this.props.listItem.end,
-			onChange: this.onEndChange
 		}), React.createElement('a', { className: "add-button", href: '#'}
           , React.createElement('button', {id: "add-button", type: 'button', onClick: this.onSubmit }, 'Save')));
 	}
 });        
     
         //onEditedListItemChange was not specified
-        
-
-        
+            
 //setting up switch statement so user can navigate pages
 var state = {};
 var setState = function setState(changes) {
@@ -304,7 +275,7 @@ var setState = function setState(changes) {
 			};
 			break;
             
-        case 'edititem':
+        case 'edit-item-start':
             component = EditFormView;
             Properties = {
                 listItem: state.listItem,
