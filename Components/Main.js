@@ -92,7 +92,7 @@ var ListItem = React.createClass({
 		React.createElement('h2', { className: 'list-item-name' }, this.props.name),
 		React.createElement('img', { className: "year", src: this.props.image, width: '260px' })
 		//React.createElement('div', {className: 'year'}, this.props.year)//passing the year property into a div 
-		), React.createElement('div', {className: "stats"}, React.createElement('p', {}, " Start: " + this.props.start, React.createElement('p', {}, " AddOns: " + this.props.addon, React.createElement('p', {}, " End: " + this.props.start )))));
+		), React.createElement('div', {className: "stats"}, React.createElement('p', {}, " Start: " + this.props.start, React.createElement('p', {}, " Add-ons: " + this.props.addon, React.createElement('p', {}, " End: " + this.props.start )))));
 	}
 });
         

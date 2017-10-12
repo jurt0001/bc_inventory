@@ -136,16 +136,16 @@ form > button {
 .stats{
    
     font-size: 2em;
-    margin: -60px;
+    margin: -80px;
     width: 60%;
-    padding-left: 90px;
-    padding-top: 30px;
+    padding-left: 110px;
     
 }
 
 .stats p{
-    display: inline-block;
+    /*display: inline-block;*/
     padding-right: 30px;
+    font-size: 1.4em
         
      
 }
