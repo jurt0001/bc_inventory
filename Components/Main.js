@@ -153,7 +153,7 @@ var ItemPage = React.createClass({
 
 	render: function render() {
 		return (//creating item page view
-			React.createElement('div', {}, React.createElement('h1', {className: "item-header"}, this.props.name + " (" + this.props.year + ")", React.createElement('a', {className: "item-add", href: "#newitem"}, "Add+"), React.createElement('a', {className: "back", href: "#"}, "Back"), React.createElement('hr', {})), React.createElement('div', { className: 'item-view' }, React.createElement('p', { className: 'list-name-header' })),
+			React.createElement('div', {}, React.createElement('h1', {className: "item-header1"}, this.props.name + " (" + this.props.year + ")", React.createElement('a', {className: "item-add1", href: "#newitem"}, "+"), React.createElement('a', {className: "back", href: "#"}, "Back"), React.createElement('hr', {})), React.createElement('div', { className: 'item-view' }, React.createElement('p', { className: 'list-name-header' })),
             React.createElement('div', {className: "bottle-div"}, React.createElement('img', { className: "bottle", src: this.props.image, width: '400px' }, )), React.createElement('div', {className: "edit-button"}, React.createElement('a', { href: "#edititem/" + this.props.id}, "Edit")))
 		
 	)}

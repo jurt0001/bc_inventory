@@ -1,5 +1,6 @@
 /******File: main.css******/
 
+
 ul {
     list-style: none;
 }
@@ -9,7 +10,8 @@ ul {
     margin: 0 auto;
     margin-top: 10px;
     background-color: white;
-    padding-top: -30px
+    padding-top: -30px;
+    border-radius: 15px;
     
 }
 
@@ -17,8 +19,8 @@ ul {
     border-radius: 10px;
     border: solid lightblue 1px;
     margin-left: -40px;
-    margin-bottom: 10px;
-   /** background-color: lightblue;**/
+    margin-bottom: 20px;
+   background-color: #C5E7E2;
     height: 400px;
     /**border-bottom: grey 3px;**/
    
@@ -28,6 +30,7 @@ ul {
     padding-left: 20px;
     font-size: 4em;
     margin-top: 10px;
+    color: black
     
     
 }
@@ -47,7 +50,7 @@ h2 {
     float: right;
     font-family: Arial, sans-serif;
     font-style: italic;
-    margin: 14px 20px;
+    margin: 24px 20px;
     position: relative
 }
 
@@ -132,7 +135,8 @@ form > button {
     height: 300px;
     font-size: 5em;
     background-color: forestgreen;
-    padding: 10px 100px 10px 100px
+    padding: 10px 100px 10px 100px;
+    color: white
     
     
 }
@@ -143,8 +147,29 @@ form > button {
     
 }
 
-.item-add{
+.item-header1{
+    text-align: center;
+    font-size: 3.1em;
+    
+}
+
+.item-header1 a:nth-child 1{
+    text-align: center;
+    font-size: 2.1em;
+    color: black
+    
+}
+
+.item-add {
     margin-top: -50px;
+    float: right;
+    margin-right: 40px;
+    font-size: 2em;
+    color: dimgray;
+}
+
+.item-add1 {
+    margin-top: -40px;
     float: right;
     margin-right: 40px;
     font-size: 2em;
@@ -153,7 +178,8 @@ form > button {
 
 .back{
     float: left;
-    margin-left: 5px;
+    margin-left: 10px;
+    color: black
     
 }
 
@@ -191,4 +217,23 @@ form > button {
     height: 70px;
     font-size: 1.8em
     
+}
+
+.add-form{
+    
+    background-color: #C5E7E2;
+    height: 100vh;
+    margin-top: -40px;
+    margin-left: -5px;
+    margin-right: -5px
+}
+
+.add-form h1{
+    padding-top: 30px;
+    padding-left: 10px;
+    color: black
+}
+
+.add-form a{
+    color: black
 }
