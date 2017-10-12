@@ -124,7 +124,7 @@ var ListPage = React.createClass({
 	},
 
 	render: function render() {
-		return React.createElement('div', {className: "list-header"}, React.createElement('h1', {className: "item-header"}, "BC Inventory", React.createElement('a', {className: "item-add", href: "#newitem"}, "Add+")), React.createElement('div', {}, React.createElement(ListItems, { items: this.props.items }) //populating the list page with the list
+		return React.createElement('div', {className: "list-header"}, React.createElement('h1', {className: "item-header"}, "BC Inventory", React.createElement('a', {className: "item-add", href: "#newitem"}, "+")), React.createElement('div', {}, React.createElement(ListItems, { items: this.props.items }) //populating the list page with the list
 		));
 	},
     

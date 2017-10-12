@@ -101,7 +101,6 @@ form > button {
 }
 
 .menu-item-link a, a:visited, a:link{
-    color: black;
     text-decoration: none;
 }
 
@@ -145,10 +144,11 @@ form > button {
 }
 
 .item-add{
+    margin-top: -50px;
     float: right;
-    margin-right: 10px;
-    
-    
+    margin-right: 40px;
+    font-size: 2em;
+    color: dimgray;
 }
 
 .back{
@@ -181,6 +181,7 @@ form > button {
     padding-top: 1px;
     
 }
+
 
 #add-button{
     background-color: forestgreen;
