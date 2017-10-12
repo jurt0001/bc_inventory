@@ -260,7 +260,7 @@ var StartForm = React.createClass({
 	},
 	onSubmit: function onSubmit() {
 		//checking to make sure the required fields have been input by user
-			this.props.onSubmit(this.props.listItem.start);
+			this.props.onSubmit(this.props.listItem);
 		
 	},
 	render: function render() {
@@ -290,7 +290,7 @@ var AddonForm = React.createClass({
 	},
 	onSubmit: function onSubmit() {
 		//checking to make sure the required fields have been input by user
-			this.props.onSubmit(this.props.listItem.addon);
+			this.props.onSubmit(this.props.listItem);
 		
 	},
 	render: function render() {
@@ -319,7 +319,7 @@ var EndForm = React.createClass({
 	},
 	onSubmit: function onSubmit() {
 		//checking to make sure the required fields have been input by user
-			this.props.onSubmit(this.props.listItem.end);
+			this.props.onSubmit(this.props.listItem);
 		
 	},
 	render: function render() {
