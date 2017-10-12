@@ -204,8 +204,8 @@ var FormView = React.createClass({
 	}
 });
         
-var EditFormView = React.createClass({
-	displayName: 'EditFormView',
+var StartFormView = React.createClass({
+	displayName: 'StartFormView',
 
 	propTypes: {
 		listItem: React.PropTypes.object.isRequired,
@@ -214,12 +214,40 @@ var EditFormView = React.createClass({
 	},
 
 	render: function render() {
-		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, "Edit Start", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(EditForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
+		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, " Start", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(StartForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
 	}
 });
         
-var EditForm = React.createClass({
-	displayName: 'EditForm',
+var AddonFormView = React.createClass({
+	displayName: 'AddonFormView',
+
+	propTypes: {
+		listItem: React.PropTypes.object.isRequired,
+		onNewListItemChange: React.PropTypes.func.isRequired,
+		onSubmitNewItem: React.PropTypes.func.isRequired
+	},
+
+	render: function render() {
+		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, " Addon", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(AddonForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
+	}
+});
+        
+var EndFormView = React.createClass({
+	displayName: 'EndFormView',
+
+	propTypes: {
+		listItem: React.PropTypes.object.isRequired,
+		onNewListItemChange: React.PropTypes.func.isRequired,
+		onSubmitNewItem: React.PropTypes.func.isRequired
+	},
+
+	render: function render() {
+		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, " End", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(EndForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
+	}
+});        
+        
+var StartForm = React.createClass({
+	displayName: 'StartForm',
 
 	propTypes: {
 		listItem: React.PropTypes.object.isRequired,
@@ -246,6 +274,67 @@ var EditForm = React.createClass({
           , React.createElement('button', {id: "add-button", type: 'button', onClick: this.onSubmit }, 'Save')));
 	}
 });        
+        
+
+var AddonForm = React.createClass({
+	displayName: 'AddonForm',
+
+	propTypes: {
+		listItem: React.PropTypes.object.isRequired,
+		onChange: React.PropTypes.func.isRequired,
+		onSubmit: React.PropTypes.func.isRequired
+	},
+	
+    onAddonChange: function onAddonChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { addon: e.target.value }));
+	},
+	onSubmit: function onSubmit() {
+		//checking to make sure the required fields have been input by user
+			this.props.onSubmit(this.props.listItem.addon);
+		
+	},
+	render: function render() {
+		//setting up the form
+		return React.createElement('form', {}, 
+            React.createElement('input', {
+			placeholder: 'Addon',
+			value: this.props.listItem.addon,
+			onChange: this.onStartChange
+		}), React.createElement('a', { className: "add-button", href: '#'}
+          , React.createElement('button', {id: "add-button", type: 'button', onClick: this.onSubmit }, 'Save')));
+	}
+}); 
+        
+var EndForm = React.createClass({
+	displayName: 'EndForm',
+
+	propTypes: {
+		listItem: React.PropTypes.object.isRequired,
+		onChange: React.PropTypes.func.isRequired,
+		onSubmit: React.PropTypes.func.isRequired
+	},
+	
+    onEndChange: function onEndChange(e) {
+		this.props.onChange(Object.assign({}, this.props.listItem, { end: e.target.value }));
+	},
+	onSubmit: function onSubmit() {
+		//checking to make sure the required fields have been input by user
+			this.props.onSubmit(this.props.listItem.end);
+		
+	},
+	render: function render() {
+		//setting up the form
+		return React.createElement('form', {}, 
+            React.createElement('input', {
+			placeholder: 'End',
+			value: this.props.listItem.addon,
+			onChange: this.onStartChange
+		}), React.createElement('a', { className: "add-button", href: '#'}
+          , React.createElement('button', {id: "add-button", type: 'button', onClick: this.onSubmit }, 'Save')));
+	}
+});
+        
+        
     
         //onEditedListItemChange was not specified
             
@@ -276,7 +365,43 @@ var setState = function setState(changes) {
 			break;
             
         case 'edit-item-start':
-            component = EditFormView;
+            component = StartFormView;
+            Properties = {
+                listItem: state.listItem,
+				onNewListItemChange: function onNewListItemChange(item) {
+					setState({ listItem: item });
+				},
+				onSubmitNewItem: function onSubmitNewItem(item) {
+					var itemList = state.items; //getting the existing list of items
+					//var newKey = itemList.length + 1; //determining the key of the new item
+                    
+                    //removing item at index 0 and adding a new one
+                    
+					itemList.splice(0, 1, (Object.assign({}, { key: 1, id: 1 }, item))); //adding the new item into the items array.
+				}    
+            };
+            break;
+            
+            case 'edit-item-addon':
+            component = AddonFormView;
+            Properties = {
+                listItem: state.listItem,
+				onNewListItemChange: function onNewListItemChange(item) {
+					setState({ listItem: item });
+				},
+				onSubmitNewItem: function onSubmitNewItem(item) {
+					var itemList = state.items; //getting the existing list of items
+					//var newKey = itemList.length + 1; //determining the key of the new item
+                    
+                    //removing item at index 0 and adding a new one
+                    
+					itemList.splice(0, 1, (Object.assign({}, { key: 1, id: 1 }, item))); //adding the new item into the items array.
+				}    
+            };
+            break;
+            
+            case 'edit-item-end':
+            component = EndFormView;
             Properties = {
                 listItem: state.listItem,
 				onNewListItemChange: function onNewListItemChange(item) {
