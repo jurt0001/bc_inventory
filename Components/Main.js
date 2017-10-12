@@ -190,6 +190,7 @@ var AddEntryForm = React.createClass({
         
 	}
     
+    
 });
 
 //Creating the page where the add entry form will live
@@ -207,19 +208,7 @@ var FormView = React.createClass({
 	}
 });
         
-var StartFormView = React.createClass({
-	displayName: 'StartFormView',
 
-	propTypes: {
-		listItem: React.PropTypes.object.isRequired,
-		onNewListItemChange: React.PropTypes.func.isRequired,
-		onSubmitNewItem: React.PropTypes.func.isRequired
-	},
-
-	render: function render() {
-		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, " Start", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(StartForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
-	}
-});
         
 var AddonFormView = React.createClass({
 	displayName: 'AddonFormView',
@@ -247,7 +236,27 @@ var EndFormView = React.createClass({
 	render: function render() {
 		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, " End", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(EndForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
 	}
-});        
+});     
+       
+        
+//////////////////////////////PAGE FOR MY START VALUE FORM/////////////////////////////////////////////////////////        
+        
+var StartFormView = React.createClass({
+	displayName: 'StartFormView',
+
+	propTypes: {
+		listItem: React.PropTypes.object.isRequired,
+		onNewListItemChange: React.PropTypes.func.isRequired,
+		onSubmitNewItem: React.PropTypes.func.isRequired
+	},
+
+	render: function render() {
+		return React.createElement('div', {className: "add-form"}, React.createElement('h1', {className: "item-header"}, " Start", React.createElement('a', {className: "back", href: '#' }, 'Back')), React.createElement('hr', {}), React.createElement('div', {}, React.createElement(StartForm, { listItem: this.props.listItem, onChange: this.props.onNewListItemChange, onSubmit: this.props.onSubmitNewItem})));
+	}
+});    
+        
+//////////////////////////////START VALUE FORM/////////////////////////////////////////////////////////          
+        
         
 var StartForm = React.createClass({
 	displayName: 'StartForm',
@@ -366,6 +375,8 @@ var setState = function setState(changes) {
 				}
 			};
 			break;
+            
+    /////////////////NAVIGATING TO MY START VALUE FORM PAGE AND TAKING THE FORM INPUT AND INSERTING IT INTO MY ITEMS ARRAY        
             
         case 'edit-item-start':
             component = StartFormView;
