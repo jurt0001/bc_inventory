@@ -19,7 +19,7 @@ ul {
     margin-left: -40px;
     margin-bottom: 10px;
    /** background-color: lightblue;**/
-    height: 200px;
+    height: 400px;
     /**border-bottom: grey 3px;**/
    
 }
@@ -77,8 +77,6 @@ form > button {
     color: white;
     
 }
-
-
 
 .nav-menu {
     border-radius: 10px;
